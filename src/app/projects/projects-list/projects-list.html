@@ -1,0 +1,48 @@
+<div class="projects-page">
+  <section class="projects-page__section">
+    <div class="projects-page__header">
+      <h1>Projects</h1>
+      <p>Explore my featured work and open-source repositories.</p>
+    </div>
+
+    <div class="projects-page__list">
+      @for (project of projects; track project.id) {
+        <article class="project-item" [id]="project.id">
+          <h2>{{ project.title }}</h2>
+
+          @if (project.description) {
+            <p class="project-item__summary">{{ project.description }}</p>
+          }
+
+          @if (project.details) {
+            <div class="project-item__details">
+              <h3>About this project</h3>
+              <p>{{ project.details }}</p>
+            </div>
+          }
+
+          @if (project.logos.length) {
+            <div class="project-logos">
+              @for (logo of project.logos; track logo) {
+                <img [src]="logo" [alt]="project.title + ' logo'" class="project-logos__item" />
+              }
+            </div>
+          }
+
+          @if (project.githubUrl) {
+            <div class="project-item__actions">
+              <a
+                [href]="project.githubUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+              >
+                View on GitHub →
+              </a>
+            </div>
+          }
+        </article>
+      }
+    </div>
+  </section>
+</div>

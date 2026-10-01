@@ -1,0 +1,300 @@
+@use '../../styles/variables.scss' as *;
+
+:host {
+  display: block;
+}
+
+.about {
+  min-height: 100vh;
+  background: $color-bg;
+  color: $color-text;
+}
+
+.about__section {
+  margin: 0 auto;
+  max-width: $max-width-md;
+  padding: 4rem 1.5rem;
+
+  @media (min-width: 640px) {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+.card {
+  @include card;
+  padding: 1.5rem;
+
+  @media (min-width: 640px) {
+    padding: 2rem;
+  }
+}
+
+.about__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.about__sidebar {
+  @media (min-width: 768px) {
+    width: 33.333%;
+  }
+}
+
+.about__eyebrow {
+  margin-bottom: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-indigo;
+}
+
+.about__title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: $color-text;
+
+  @media (min-width: 640px) {
+    font-size: 2.25rem;
+  }
+}
+
+.profile-frame {
+  margin: 1.5rem auto 0;
+  aspect-ratio: 1;
+  width: 100%;
+  max-width: 220px;
+  overflow: hidden;
+  border-radius: $radius-xl;
+  border: 2px solid rgba(236, 236, 241, 0.4);
+  background: $color-surface-dark;
+  padding: 0.25rem;
+  box-shadow: 0 10px 15px -3px rgb(49 46 129 / 0.2);
+
+  @media (min-width: 768px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.75rem;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.about__content {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.625;
+  color: $color-text-muted;
+
+  @media (min-width: 768px) {
+    margin-top: 0;
+    width: 66.666%;
+  }
+}
+
+.education-card {
+  margin-top: 2rem;
+}
+
+.certificate-card {
+  margin-top: 2rem;
+}
+
+.certificate-card__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.certificate-item {
+  margin-top: 1.5rem;
+  border-radius: 0.75rem;
+  border: 1px solid $color-border;
+  background: $color-surface-dark;
+  overflow: hidden;
+}
+
+.certificate-item__image {
+  border-bottom: 1px solid $color-border;
+  background: $color-surface;
+  padding: 1rem;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    max-height: 420px;
+    object-fit: contain;
+    object-position: center;
+  }
+}
+
+.certificate-item__content {
+  padding: 1.25rem;
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    line-height: 1.5;
+    color: $color-indigo;
+  }
+}
+
+.certificate-item__issued {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: $color-text;
+}
+
+.certificate-item__details {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.625;
+  color: $color-text-muted;
+}
+
+.skills-card {
+  margin-top: 2rem;
+}
+
+.skills-card__title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: $color-text;
+}
+
+.skills-grid {
+  margin-top: 1.5rem;
+  display: grid;
+  gap: 1rem;
+
+  @media (min-width: 640px) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.skill-card {
+  border-radius: 0.75rem;
+  border: 1px solid $color-border;
+  background: $color-surface-dark;
+  padding: 1.25rem;
+
+  h3 {
+    text-align: center;
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $color-indigo;
+  }
+
+  ul {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: $color-text-muted;
+  }
+
+  .label {
+    font-weight: 500;
+    color: $color-text;
+  }
+}
+
+.education-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $color-text;
+  }
+
+  p {
+    font-size: 0.75rem;
+    color: $color-text-subtle;
+  }
+}
+
+.education-carousel {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem;
+}
+
+.education-item {
+  min-width: 280px;
+  scroll-snap-align: start;
+  border-radius: 0.75rem;
+  border: 1px solid $color-border;
+  background: $color-surface-dark;
+  padding: 1.25rem;
+
+  @media (min-width: 640px) {
+    min-width: 340px;
+  }
+
+  h3 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: $color-indigo;
+  }
+
+  p {
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    color: $color-text-muted;
+  }
+
+  .extra {
+    margin-top: 0.25rem;
+    font-size: 0.875rem;
+    color: $color-text-subtle;
+  }
+}
+
+.education-item__image {
+  margin-bottom: 1rem;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  border: 1px solid $color-border;
+  background: $color-surface-dark;
+  font-size: 0.75rem;
+  color: $color-text-subtle;
+
+  img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
+
+.education-item__placeholder {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}

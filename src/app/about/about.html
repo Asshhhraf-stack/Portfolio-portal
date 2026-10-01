@@ -1,0 +1,94 @@
+<div class="about">
+  <section class="about__section">
+    <div class="card">
+      <div class="about__intro">
+        <div class="about__sidebar">
+          
+          <h1 class="about__title">More About Me</h1>
+
+          <div class="profile-frame">
+            <img
+              [src]="profileImageUrl"
+              alt="Muhammad Ashraf bin Amran"
+            />
+          </div>
+        </div>
+
+        <div class="about__content">
+          <p>{{ aboutMe }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card skills-card">
+      <h2 class="skills-card__title">Skills</h2>
+      <div class="skills-grid">
+        @for (section of getSkillSections(); track section.title) {
+          <article class="skill-card">
+            <h3>{{ section.title }}</h3>
+            <ul>
+              @for (entry of section.entries; track entry.value) {
+                <li>
+                  @if (entry.label) {
+                    <span class="label">{{ entry.label }}:</span>
+                    {{ ' ' + entry.value }}
+                  } @else {
+                    {{ entry.value }}
+                  }
+                </li>
+              }
+            </ul>
+          </article>
+        }
+      </div>
+    </div>
+
+    <div class="card education-card">
+      <div class="education-card__header">
+        <h2>Education</h2>
+        
+      </div>
+
+      <div class="education-carousel">
+        @for (item of getEducationItems(); track item.title) {
+          <article class="education-item">
+            <div class="education-item__image">
+              @if (item.imageUrl) {
+                <img [src]="item.imageUrl" [alt]="item.title" />
+              } @else {
+                <div class="education-item__placeholder">
+                  Insert education image
+                </div>
+              }
+            </div>
+
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.details }}</p>
+            @if (item.extra) {
+              <p class="extra">{{ item.extra }}</p>
+            }
+          </article>
+        }
+      </div>
+    </div>
+
+    <div class="card certificate-card">
+      <h2 class="certificate-card__title">Certificate</h2>
+
+      <article class="certificate-item">
+        <div class="certificate-item__image">
+          <img
+            [src]="certificate.imageUrl"
+            [alt]="certificate.title"
+          />
+        </div>
+
+        <div class="certificate-item__content">
+          <h3>{{ certificate.title }}</h3>
+          <p class="certificate-item__issued">Issued in: {{ certificate.issuedIn }}</p>
+          <p class="certificate-item__details">{{ certificate.details }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</div>
