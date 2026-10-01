@@ -40,7 +40,7 @@ export class About {
     issuedIn: 'April 2026',
     details:
       'Accredited by International Software Testing Qualifications Board. Certificate Number: MY0054-26.',
-    imageUrl: 'assets/cert/CTFL.png',
+    imageUrl: 'assets/cert/CTFL-Ashraf.png',
   };
 
   private readonly educationItems: EducationItem[] = [
